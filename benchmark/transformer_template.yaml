@@ -1,0 +1,67 @@
+# transformer_template.yaml
+
+## Where the samples will be written
+save_data: {}
+
+## Where the vocab will be written
+src_vocab: {}
+tgt_vocab: {} 
+
+overwrite: True
+
+# Corpus opts:
+data:
+    corpus_1:
+        path_src: {} 
+        path_tgt: {} 
+    valid:
+        path_src: {}
+        path_tgt: {}
+
+# Train on a single GPU
+world_size: 1
+# gpu_ranks:
+# - 0
+
+
+# Tensorboard
+tensorboard: True
+tensorboard_log_dir: {}
+
+# Where to save the checkpoints
+save_model: {} 
+save_checkpoint_steps: 10000
+
+# Model parameters
+keep_checkpoint: 10
+seed: {}
+train_steps: 150000
+valid_steps: 10000
+warmup_steps: 8000
+report_every: 100
+
+decoder_type: transformer
+encoder_type: transformer
+word_vec_size: 512
+hidden_size: 512
+layers: 4
+transformer_ff: 2048
+heads: 8
+
+accum_count: 8 
+optim: adam
+adam_beta1: 0.9
+adam_beta2: 0.998
+decay_method: noam
+learning_rate: 2.0
+max_grad_norm: 0.0
+
+batch_size: 4096
+batch_type: tokens
+normalization: tokens
+dropout: 0.1
+label_smoothing: 0.1
+
+param_init: 0.0
+param_init_glorot: 'true'
+position_encoding: 'true'

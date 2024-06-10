@@ -1,0 +1,12 @@
+keras[tensorflow]>=2.10.0
+pandas>=1.3
+numpy>=1.2
+scikit-learn>=1.3.2
+OpenNMT-py>=3.0.3
+rdkit>=2023.9.6
+torch>=2.2.0
+pyarrow>=16.1.0
+xgboost>=2.0.3
+rxn-chem-utils>=1.5.0
+click>=8.1.7
+tensorflow>=2.10.0
