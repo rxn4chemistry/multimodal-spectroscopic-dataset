@@ -7,7 +7,7 @@ This project is designed to work with  Multimodal-Spectroscopic-Dataset. It requ
 Clone the repository or download the project files by running
 
 ```
-git clone GIT_LINK
+git clone https://github.com/rxn4chemistry/multimodal-spectroscopic-dataset.git
 ```
 #### Conda install 
 
