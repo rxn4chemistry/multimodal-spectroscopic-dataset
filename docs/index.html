@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
   <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
-  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <meta name="description" content="Multimodal Spectroscopic Dataset, Containing NMR, IR and MS data for 790'000 molecules">
+  <meta property="og:title" content="Multimodal Spectroscopic Dataset"/>
+  <meta property="og:description" content="Multimodal Spectroscopic Dataset"/>
+  <meta property="og:url" content="https://rxn4chemistry.github.io/multimodal-spectroscopic-dataset/"/>
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image" content="static/images/1_1.png" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
@@ -24,7 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>Academic Project Page</title>
+  <title>Multimodal Spectroscopic Dataset</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
@@ -58,22 +58,25 @@
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="https://github.com/MAlberts99" target="_blank">Marvin ALberts</a><sup>*</sup>,</span>
+                <a href="https://github.com/MAlberts99" target="_blank">Marvin Alberts</a><sup>1,2*</sup>,</span>
                 <span class="author-block">
-                  <a href="https://schwallergroup.github.io/people/oliver_schilter.html" target="_blank">Oliver Schilter</a><sup>*</sup>,</span> <br>
+                  <a href="https://schwallergroup.github.io/people/oliver_schilter.html" target="_blank">Oliver Schilter</a><sup>1,3*</sup>,</span> <br>
                   <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Federico Zipoli</a>,</span>
+                    <a href="https://research.ibm.com/people/federico-zipoli" target="_blank">Federico Zipoli</a><sup>1</sup>,</span>
                   </span>
                   <span class="author-block">
-                    <a href="Forth AUTHOR PERSONAL LINK" target="_blank">Nina Hartrampf</a> ,
+                    <a href="https://www.chem.uzh.ch/en/research/groups/hartrampf/cv.html" target="_blank">Nina Hartrampf</a><sup>2</sup ,
                   </span>
                   <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Tedoro Laino</a>,</span>
+                    <a href="https://research.ibm.com/people/teodoro-laino" target="_blank">Tedoro Laino</a><sup>1</sup>,</span>
                   </span>
                   </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block">IBM Research <br>Neurips 2024</span>
+                    <span class="author-block"> <sup>1</sup>IBM Research.       
+                      <sup>2</sup>University Zurich 
+                      <sup>3</sup>EPFL  <br>
+                      Neurips 2024</span>
                     <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
                   </div>
 
@@ -112,6 +115,16 @@
                     <span>Code</span>
                   </a>
                 </span>
+
+                <span class="link-block">
+                  <a href="https://github.com/rxn4chemistry/multimodal-spectroscopic-dataset/tree/main" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-database"></i>
+                  </span>
+                  <span>Data</span>
+                </a>
+              </span>
 
                 <!-- ArXiv abstract Link -->
                 <!-- <span class="link-block">
@@ -172,7 +185,7 @@
 
 
 <!-- Youtube video -->
-<section class="hero is-small is-light">
+<section class="hero is-small ">
     <div class="hero-body">
       <div class="container">
         <!-- Paper video. -->
@@ -180,7 +193,7 @@
         <div class="columns is-centered">
           <!-- <div class="column is-four-fifths"> -->
             <div class="content">
-              The aim was to generate a large number of various spectroscopic data from molecules extracted from the USPTO Dataset. This gives a realistic coverage of chemical accessible molecules. We aimed to simulated a variety of Spectras e.g.: <sup>13</sup>C-NMR, <sup>1</sup>H-NMR, Infrared and Mass spectroscopy with different tools such as Mnova, Lammps and CFM-ID.
+              The aim was to generate a large number of various spectroscopic data from molecules extracted from the USPTO Dataset. This gives a realistic coverage of chemical accessible molecules, we filtered further mostly on heavy atom count (between 5-35). We aimed to simulated a variety of Spectras e.g.: <sup>13</sup>C-NMR, <sup>1</sup>H-NMR, Infrared and Mass spectroscopy with different tools such as Mnova, Lammps and CFM-ID. Overall we generated 790k Molecules and all modalities of simulated spectra.
             <!-- </div> -->
           </div>
         </div>
@@ -253,19 +266,19 @@
 
 <!-- Image carousel -->
 
-<section class="hero is-small">
+<section class="hero is-small is-light">
  
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Spectra Samples</h2>
+      <h2 class="title is-3">Sample Spectra</h2>
       <div id="results-carousel" class="carousel results-carousel">
-       <div class="item"  width="300" >
+       <div class="item" >
         <img src="static/images/1_1.png" alt="MY ALT TEXT" />
         <h2 class="subtitle has-text-centered">
          Example molecule sample represented as SMILES
         </h2>
       </div>
-      <div class="item"  width="300" >
+      <div class="item" >
         <img src="static/images/1_2.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
           Infrared Spectrum of the molecule
@@ -280,7 +293,7 @@
      <div class="item">
       <img src="static/images/1_3.png" alt="MY ALT TEXT"/>
       <h2 class="subtitle has-text-centered">
-        Simulated <sup>13</sup>H-NMR of the molecule
+        Simulated <sup>13</sup>C-NMR of the molecule
       </h2>
     </div>
     <div class="item">
