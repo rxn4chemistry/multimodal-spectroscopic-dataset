@@ -25,7 +25,7 @@ pip install -r requirements.txt
 
 ## Data Download
 The project requires specific data files to run. You can download the data from the following link:
-https://example.com/data/multi-spectral-data.zip
+[https://zenodo.org/records/11611178](https://zenodo.org/records/11611178)
 
 Extract the downloaded ZIP file into the project directory in the data folder.
 Running the Project
