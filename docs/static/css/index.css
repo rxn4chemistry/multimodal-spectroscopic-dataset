@@ -135,3 +135,59 @@ body {
 
 
 
+
+/* Add this to your static/css/index.css file */
+
+/* Adjust max-width of desktop containers */
+.container.is-max-desktop {
+  max-width: 800px !important;  /* Reduced from default 960px */
+}
+
+/* Adjust overall content scaling */
+.hero-body {
+  padding: 2rem 1.5rem;  /* Reduced padding */
+}
+
+/* Adjust title sizes */
+.title.is-1 {
+  font-size: 2.5rem !important;  /* Reduced from 3rem */
+}
+
+.title.is-3 {
+  font-size: 1.5rem !important;  /* Reduced from 2rem */
+}
+
+/* Adjust table sizing */
+table {
+  font-size: 0.9rem;
+}
+
+/* Adjust content text size */
+.content {
+  font-size: 0.95rem;
+}
+
+/* Make images in carousel slightly smaller */
+.results-carousel .item img {
+  max-width: 90%;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Adjust author section spacing */
+.publication-authors {
+  font-size: 1rem !important;
+  line-height: 1.4;
+}
+
+/* Reduce spacing between sections */
+.section {
+  padding: 2rem 1.5rem;
+}
+
+/* Add media query to only apply these styles on desktop */
+@media screen and (min-width: 1024px) {
+  .container.is-max-desktop {
+      margin: 0 auto;
+  }
+}

@@ -40,5 +40,10 @@ run_xgboost.sh
 ## Citation
 Cite our work as followes:
 ```
-Bibtex is Coming 
+@article{alberts2024unraveling,
+  title={Unraveling Molecular Structure: A Multimodal Spectroscopic Dataset for Chemistry},
+  author={Alberts, Marvin and Schilter, Oliver and Zipoli, Federico and Hartrampf, Nina and Laino, Teodoro},
+  year={2024},
+  url={https://arxiv.org/abs/2407.17492}, 
+}
 ```
