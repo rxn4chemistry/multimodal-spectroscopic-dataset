@@ -47,3 +47,6 @@ Cite our work as followes:
   url={https://arxiv.org/abs/2407.17492}, 
 }
 ```
+
+## Acknowledgements
+This publication was created as part of NCCR Catalysis (grant number 180544), a National Centre of Competence in Research funded by the Swiss National Science Foundation.
