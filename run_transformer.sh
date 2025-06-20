@@ -4,63 +4,38 @@ export LD_LIBRARY_PATH=/opt/share/gcc-10.1.0//lib64:/opt/share/gcc-10.1.0//lib:/
 
 run_dir=./runs
 
+# Run replication for structure prediction from spectra
+
 # H NMR
 python ./benchmark/generate_input.py \
         --analytical_data ./data/ \
-        --out_path ${run_dir}/runs_f_groups/h_nmr \
+        --out_path ${run_dir}/runs_new_onmt_w_formula/h_nmr \
+        --formula \
         --h_nmr 
 
 python ./benchmark/start_training.py \
-        --output_path ${run_dir}/runs_f_groups/h_nmr \
-        --template_path ./benchmark/transformer_template.yaml
+        --out_path ${run_dir}/runs_new_onmt_w_formula/h_nmr 
+ 
+
 # C NMR
 python ./benchmark/generate_input.py \
         --analytical_data  ./data/ \
-        --out_path ${run_dir}/runs_f_groups/c_nmr \
+        --out_path ${run_dir}/runs_new_onmt_w_formula/c_nmr \
+        --formula \
         --c_nmr
 
-python ./benchmark/start_training.py\
-            --output_path ${run_dir}/runs_f_groups/c_nmr \
-             --template_path ./benchmark/transformer_template.yaml
+python ./benchmark/start_training.py \
+        --out_path ${run_dir}/runs_new_onmt_w_formula/h_nmr 
 
-# IR
+
+# C NMR + H NMR
 python ./benchmark/generate_input.py \
         --analytical_data  ./data/ \
-        --out_path {$run_dir}/runs_f_groups/ir \
-        --ir
-
-python ./benchmark/start_training.py\
-            --output_path ${run_dir}/runs_f_groups/ir \
-             --template_path ./benchmark/transformer_template.yaml
-
-# Pos MSMS
-python ./benchmark/generate_input.py \
-        --analytical_data  ./data/ \
-        --out_path ${run_dir}/runs_f_groups/pos_msms \
-        --pos_msms
-
-python ./benchmark/start_training.py\
-            --output_path ${run_dir}/runs_f_groups/pos_msms \
-             --template_path ./benchmark/transformer_template.yaml
-
-# Neg MSMS
-
-python ./benchmark/generate_input.py \
-        --analytical_data  ./data/ \
-        --out_path ${run_dir}/runs_f_groups/neg_msms \
-        --neg_msms
-python ./benchmark/start_training.py\
-            --output_path ${run_dir}/runs_f_groups/neg_msms \
-             --template_path ./benchmark/transformer_template.yaml
-
-# 1H + 13C
-python ./benchmark/generate_input.py \
-        --analytical_data  ./data/ \
-        --out_path ${run_dir}/runs_f_groups/all_modalities \
+        --out_path ${run_dir}/runs_new_onmt_w_formula/c_nmr \
+        --formula \
         --h_nmr \
-        --c_nmr \
+        --c_nmr
 
-python ./benchmark/start_training.py\
-            --output_path ${run_dir}/runs_f_groups/all_modalities \
-             --template_path ./benchmark/transformer_template.yaml
+python ./benchmark/start_training.py \
+        --out_path ${run_dir}/runs_new_onmt_w_formula/h_nmr 
 

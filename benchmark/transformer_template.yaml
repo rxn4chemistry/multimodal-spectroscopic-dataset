@@ -20,8 +20,8 @@ data:
 
 # Train on a single GPU
 world_size: 1
-# gpu_ranks:
-# - 0
+gpu_ranks:
+- 0
 
 
 # Tensorboard
@@ -35,7 +35,7 @@ save_checkpoint_steps: 10000
 # Model parameters
 keep_checkpoint: 10
 seed: {}
-train_steps: 150000
+train_steps: 250000
 valid_steps: 10000
 warmup_steps: 8000
 report_every: 100
