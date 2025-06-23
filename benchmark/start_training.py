@@ -1,9 +1,7 @@
 import os
-import shutil
 import subprocess
-import time
 
-import pandas as pd
+from pathlib import Path
 
 import argparse
 
@@ -39,8 +37,6 @@ def main(template_path: str, output_path: str, seed: int):
 
     data_path = os.path.join(output_path, 'data')
 
-    src_test_path = os.path.join(data_path, 'src-test.txt')
-    tgt_test_path = os.path.join(data_path, 'tgt-test.txt')
     src_train_path = os.path.join(data_path, 'src-train.txt')
     tgt_train_path = os.path.join(data_path, 'tgt-train.txt')
     src_val_path = os.path.join(data_path, 'src-val.txt')
@@ -64,7 +60,7 @@ def main(template_path: str, output_path: str, seed: int):
     os.makedirs(train_logs_path, exist_ok=True)
 
     with open(job_log, 'w') as out:
-        subprocess.call(['onmt_train', '-config', input_file_path], stdout=out, stderr=out)
+        subprocess.call(['bsub', '-q', 'normal', '-gpu', '"num=1"', '-n', '1', '-R', 'rusage[ngpus=1,mem=25,cpu=8]', '-o', str(Path(output_path) / 'test.out'), '-e', str(Path(output_path) / 'test.err'), 'onmt_train', '-config', input_file_path], stdout=out, stderr=out)
 
 parser = argparse.ArgumentParser(description='Run transformer training from data creation to inference.')
 parser.add_argument('--output_path', required=True, help='Output folder')

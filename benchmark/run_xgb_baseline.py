@@ -3,7 +3,6 @@ from pathlib import Path
 import click
 import pandas as pd
 import pickle
-import os
 from sklearn.model_selection import train_test_split
 from rdkit import Chem
 from rdkit import RDLogger
@@ -55,7 +54,7 @@ functional_groups = {
 
 
 def match_group(mol: Chem.Mol, func_group) -> int:
-    if type(func_group) == Chem.Mol:
+    if type(func_group) is Chem.Mol:
         n = len(mol.GetSubstructMatches(func_group))
     else:
         n = func_group(mol)
