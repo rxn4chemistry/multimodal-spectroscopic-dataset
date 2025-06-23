@@ -28,14 +28,73 @@ The project requires specific data files to run. You can download the data from 
 [https://zenodo.org/records/11611178](https://zenodo.org/records/11611178)
 
 Extract the downloaded ZIP file into the project directory in the data folder.
-Running the Project
-After activating the multispecdata environment and downloading the data, you can run the the benchmark models with the following command:
+
+## Replicating experiments
+
+### XGBoost and CNN
+
+To replicate the results presented in the paper for XGBoost and CNNs use execute the following two scripts:
 
 ```bash
-run_transformer.sh
 run_cnn.sh
 run_xgboost.sh
 ```
+
+### Transformer models:
+
+For the transformer models we present a set of different experiments including predicting the structure of a molecule from spectra, the spectra from the molecule. For all experiments the training data was generated using the following script:
+
+```
+python benchmark/generate_input.py 
+  # Paths
+  --analytical_data <Path to the folder containing the dataset> 
+  --out_path <Path where the data will be saved>
+
+  # Flags controlling input 
+  --formula <Flag: Wether or not to include molecular formula in the input>
+  --h_nmr <Flag: Wether or not to include 13C-NMR in the input>
+  --c_nmr <Flag: Wether or not to include 1H-NMR in the input>
+  --ir <Flag: Wether or not to include IR spectra in the input>
+  --pos_msms <Flag: Wether or not to include positive MS/MS spectra in the input>
+  --neg_msms <Flag: Wether or not to include negative MS/MS spectra in the input>
+
+  # Flags controlling target
+  --pred_spectra <Flag: By default the target is the molecular structure as SMILES. If this flag is used this is reversed with SMILES as input and spectra as output.>
+
+  --seed <Default: 3245>
+```
+
+To start training the model use the following script:
+
+```
+python benchmark/start_training.py 
+  --output_path <Path to the out_path specified when generating the data.>
+  --template_path <Path to the OpenNMT config template to use. Default: ./benchmark/transformer_template.yaml>
+  --seed <Seed. Default: 3245>
+```
+
+With a trained model inference can be run using the following OpenNMT command:
+
+```
+onmt_translate 
+  -model <model_path> 
+  -src <src_path> 
+  -output <out_file> 
+  -beam_size 10 
+  -n_best 10 
+  -min_length 5 
+  -gpu 0
+```
+
+To analyse the results use the following script:
+
+```
+python benchmark/analyse_results.py 
+  --pred_path <Path to the predictions made with onmt_translate>
+  --test_path <Path to the ground truth test data>
+```
+
+We have provided a script `run_transformer.sh` to train models used in the structure prediction experiments for 1H-NMR, 13C-NMR and the combination of 1H-NMR and 13C-NMR.
 
 ## Citation
 Cite our work as followes:

@@ -195,7 +195,8 @@ def main(
     
     # Make the training data
     tokenised_data = list()
-    for parquet_file in analytical_data.glob("*.parquet"):
+    for parquet_file in tqdm.tqdm(analytical_data.glob("*.parquet"), total=245):
+        print(parquet_file.stem)
         data = pd.read_parquet(parquet_file)
         tokenised_data.append(tokenise_data(data, h_nmr, c_nmr, ir, pos_msms, neg_msms, formula))
         del data

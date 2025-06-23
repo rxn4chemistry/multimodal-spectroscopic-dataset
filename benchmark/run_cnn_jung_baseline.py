@@ -1,4 +1,4 @@
-"""Trains CNN model with optimal hyper-parameters."""
+# Adapted from Guwon Jung: https://github.com/gj475/irchracterizationcnn
 
 import numpy as np
 import pickle
@@ -9,7 +9,6 @@ from keras.models import Model
 from keras.layers import Input, MaxPooling1D, Dropout, Activation
 from keras.layers import Conv1D, Dense, Flatten, BatchNormalization
 from keras.optimizers import Adam
-from keras.callbacks import  LearningRateScheduler
 from sklearn.metrics import f1_score
 from sklearn.model_selection import train_test_split 
 from pathlib import Path
@@ -61,7 +60,7 @@ functional_groups = {
 
 
 def match_group(mol: Chem.Mol, func_group) -> int:
-    if type(func_group) == Chem.Mol:
+    if type(func_group) is Chem.Mol:
         n = len(mol.GetSubstructMatches(func_group))
     else:
         n = func_group(mol)
@@ -160,10 +159,8 @@ def train_model(X_train, y_train, X_test, num_fgs, aug, num, weighted):
         elif 37 <= epoch < 42:
             return 2.5000001187436284e-06
 
-    callback = [LearningRateScheduler(custom_learning_rate_schedular, verbose=1)]
     print('Start training')
     # Start training.
-    history = model.fit(x=X_train, y=y_train, epochs=41, batch_size=41, callbacks=callback)
 
     prediction = model.predict(X_test)
     return (prediction > 0.5).astype(int)
